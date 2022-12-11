@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        box-sizing: border-box;
+        background-color: #ffc600;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 5rem;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+      .site-wrap {
+        max-width: 700px;
+        background: white;
+        padding: 40px;
+        text-align: justify;
+        margin: 0 auto;
+        border-radius: 10px;
+
+      }
+      .align-left {
+        float: left;
+        margin-right: 20px;
+      }
+      .align-right {
+        float: right;
+        margin-left: 20px;
+      }
+      .slide-in {
+        opacity: 0;
+        transition: all 0.5s;
+        margin-bottom: 10rem;
+      }
+      .align-left.slide-in {
+        transform: translateX(-30%) scale(0.95);
+      }
+      .slide-in.active {
+        opacity: 1;
+        transform: translateX(0%) scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-wrap">
+      <p>
+        <img
+          src="./artboard_copy_4x.png"
+          alt="sample_img"
+          width="500px"
+          class="align-right slide-in"
+        />
+      </p>
+      <p>
+        <img
+          src="./Bg_Image.jpg"
+          alt="sample_img"
+          width="500px"
+          class="align-left slide-in"
+        />
+      </p>
+      <p>
+        <img
+          src="./Success factors-pana.png"
+          alt="sample_img"
+          width="500px"
+          class="align-right slide-in"
+        />
+      </p>
+    </div>
+    <script>
+      function debounce(func, wait = 20, immediate = true) {
+        var timeout;
+        return function () {
+          var context = this,
+            args = arguments;
+          var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          var callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      }
+      const sliderImages = document.querySelectorAll(".slide-in");
+      function checkSlide(e) {
+        sliderImages.forEach((sliderImage) => {
+          const slideInAt =
+            window.scrollY + window.innerHeight - sliderImage.height / 2;
+          const imageBottom = sliderImage.offsetTop + sliderImage.height;
+          const isHalfShown = slideInAt > sliderImage.offsetTop;
+          const isNotScrolledPast = window.scrollY <  imageBottom
+          if(isHalfShown && isNotScrolledPast){
+            sliderImage.classList.add('active')
+        }else{
+              sliderImage.classList.remove('active')
+          }
+        });
+      }
+      window.addEventListener("scroll", debounce(checkSlide));
+    </script>
+  </body>
+</html>

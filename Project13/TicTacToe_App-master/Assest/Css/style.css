@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    font-family: var(--font);
+}
+:root {
+    --font: "Raleway", sans-serif;
+    --back: #14bdac;
+    --border: #0da192;
+    --user2: #bdbf09;
+    --user1: #fff;
+}
+.main-div {
+    background-color: var(--back);
+    width: 100vw;
+    height: 100vh;
+}
+.inner-extra {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#tic1 {
+    border: 10px solid var(--border);
+    border-top: none;
+    border-left: none;
+
+}
+#tic2 {
+    border: 10px solid var(--border);
+    border-left: none;
+    border-top: none;
+
+}
+#tic3 {
+    border: 10px solid var(--border);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+
+}
+#tic4 {
+    border: 10px solid var(--border);
+    border-left: none;
+    border-top: none;
+
+}
+#tic5 {
+    border: 10px solid var(--border);
+    border-left: none;
+    border-top: none;
+
+}
+#tic6 {
+    border: 10px solid var(--border);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+
+}
+#tic7 {
+    border-right: 10px solid var(--border);
+
+}
+#tic8 {
+    border-right: 10px solid var(--border);
+
+}
+div.inner-extra div {
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem;
+    color: var(--user1);
+    width:8rem;
+    height:6.5rem;
+    text-align: center;
+}
+.active1::before{
+/* font-family: 'Font Awesome 5 Free'; */
+content: 'X';
+font-size: 4.5rem;
+}
+.circel1::before{
+/* font-family: 'Font Awesome 5 Free'; */
+content: 'O';
+font-size: 4.5rem;
+color: green;
+}

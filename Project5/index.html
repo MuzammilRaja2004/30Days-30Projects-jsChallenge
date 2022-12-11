@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <div class="main">
+        <h1>The Drum Kit</h1>
+      <div class="keys">
+        <div class="key" data-key="65">
+          <kbd> a </kbd>
+          <span class="sound">Crash</span>
+        </div>
+
+        <div class="key" data-key="83">
+          <kbd> s </kbd>
+          <span class="sound">Ride</span>
+          </div>
+
+          <div class="key" data-key="68">
+            <kbd> d </kbd>
+            <span class="sound">Floor Tom</span>
+          </div>
+          <div class="key" data-key="70">
+            <kbd> f </kbd>
+            <span class="sound">Mid Tom</span>
+          </div>
+          <div class="key" data-key="71">
+            <kbd> g </kbd>
+            <span class="sound">High Tom</span>
+          </div>
+          <div class="key" data-key="72">
+            <kbd> h </kbd>
+            <span class="sound">Kick</span>
+          </div>
+          <div class="key" data-key="74">
+            <kbd> j </kbd>
+            <span class="sound">Snare</span>
+          </div>
+          <div class="key" data-key="75">
+            <kbd> k </kbd>
+            <span class="sound">Hi-Hat Open </span>
+          </div>
+          <div class="key" data-key="76">
+            <kbd> l </kbd>
+            <span class="sound">Hi-Hat Close </span>
+          </div>
+      </div>
+
+      <div>
+        <audio src="./Drum__Sound/Drum__1.wav" data-key="65"></audio>
+        <audio src="./Drum__Sound/Drum__2.wav" data-key="83"></audio>
+        <audio src="./Drum__Sound/Drum__3.wav" data-key="68"></audio>
+        <audio src="./Drum__Sound/Drum__4.wav" data-key="70"></audio>
+        <audio src="./Drum__Sound/Drum__5.wav" data-key="71"></audio>
+        <audio src="./Drum__Sound/Drum__6.wav" data-key="72"></audio>
+        <audio src="./Drum__Sound/Drum__7.wav" data-key="73"></audio>
+        <audio src="./Drum__Sound/Drum__8.wav" data-key="74"></audio>
+        <audio src="./Drum__Sound/Drum__9.wav" data-key="75"></audio>
+        <audio src="./Drum__Sound/Drum__10.wav" data-key="76"></audio>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("keydown", function (e) {
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+        const key = document.querySelector(`.key[data-key="{e.keyCode}"]`);
+        if (!audio) return;
+        audio.play();
+        audio.currentTime = 0;
+      });
+    </script>
+  </body>
+</html>
